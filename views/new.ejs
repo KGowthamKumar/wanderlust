@@ -1,0 +1,21 @@
+<% layout("/layouts/boilerplates") %> 
+<div class="offset-4">
+    <h3>CREATING A NEW LISTING</h3>  
+    <form action="/listings" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+
+        <input type="text" class="form-control" name="listing[title]" placeholder="enter the title*" required><br><br>
+
+        <textarea class="form-control" name="listing[description]" placeholder="enter the description" required></textarea><br><br>
+
+        <input type="file" class="form-control" name="listing[image]" placeholder="upload image"><br><br>
+
+        <input type="number" class="form-control" name="listing[price]" placeholder="enter the price*" required><br><br>
+
+        <input type="text" class="form-control" name="listing[location]" placeholder="enter the location*" required><br><br>
+
+        <input type="text" class="form-control" name="listing[country]" placeholder="enter the country*" required><br><br>
+
+        <button class="btn btn-primary">Add</button>
+
+    </form>
+</div>

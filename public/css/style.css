@@ -1,0 +1,92 @@
+/* body{
+    background-color: pink;
+} */
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+.fa-compass{
+    color:red;
+    font-size: 2rem;
+}
+.nav-link{
+    color: #222222;
+
+}
+.f-info-links{
+    width:100%;
+}
+.f-info-socials{
+width: 100%;
+font-size: 1.2rem;
+}
+.f-info{
+    text-align: center;
+    height: 8rem;
+    background-color: grey;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+.listing-card{
+    margin-bottom: 2rem;
+    border: none !important;
+}
+.card-image-top{
+    border-radius: 1 rem !important;
+    width: 200% !important;
+    object-fit: cover !important;
+}
+.card-body{
+    padding: 0px !important;
+}
+.listing-linking{
+    text-decoration: none;
+}
+.card-image-top{
+    opacity: 0.5;
+    background-color: white;
+}
+.card-image-top:hover{
+    opacity: 1;
+}
+.delete{
+    background-color: red;
+    border-radius: 5%;
+    color: white;
+    
+}
+.seperate-image img{
+    border-radius: 25px;
+}
+.eachone{
+       display: flex !important;
+       flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.add{
+    background-color: black;
+    color: white;
+    width: 50px;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+.add:hover{
+    opacity: 1;
+}
+.next{
+    margin-left: 200px;
+}
+.search{
+    border-radius: 25px;
+
+}
