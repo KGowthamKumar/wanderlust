@@ -24,6 +24,7 @@ const  listingschema=new mongoose.Schema({
            type: Schema.Types.ObjectId,
              ref:"User"
     },
+  
 })
 const Listing=mongoose.model("Listing",listingschema);
 module.exports=Listing;

@@ -1,6 +1,7 @@
 if(process.env.NODE_ENV!="production"){
     require('dotenv').config();
 }
+console.log(process.env.ATLASDB_URL);
 const express=require("express");
 const mongoose=require("mongoose");
 const path=require("path");
@@ -25,8 +26,7 @@ app.use(express.static(path.join(__dirname,"/public")));
 const passport=require("passport");
 const LocalStrategy=require("passport-local");
 const userRouter=require("./routes/user.js");
-const User=require("./models/User.js");
-
+const User=require("./models/User.js")
 main()
 .then(()=>{
     console.log("connection sucessful");
@@ -61,12 +61,12 @@ app.use((req,res,next)=>{
       console.log(req.User);  
     next();
 })
+
 app.get("/wonderlust",(req,res)=>{
     res.render("user.ejs");
 })
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter)
-app.use("/",userRouter);
 app.use((req, res, next) => {
     next(new ExpressError(404, "Page not found"));
 });
