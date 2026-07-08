@@ -1,7 +1,6 @@
 if(process.env.NODE_ENV!="production"){
     require('dotenv').config();
 }
-console.log(process.env.ATLASDB_URL);
 const express=require("express");
 const mongoose=require("mongoose");
 const path=require("path");
@@ -57,11 +56,9 @@ app.use((req,res,next)=>{
     res.locals.success=req.flash("success");
     res.locals.error=req.flash("error");
     res.locals.currUser=req.user;
-      console.log(req.user);
-      console.log(req.User);  
     next();
 })
-
+app.use("/", userRouter);
 app.get("/wonderlust",(req,res)=>{
     res.render("user.ejs");
 })
@@ -78,4 +75,3 @@ app.use((err,req,res,next)=>{
 app.listen(7070,()=>{
     console.log("server is listening");
 })
-

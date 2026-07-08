@@ -2,11 +2,7 @@
 <%= success %>
     <h2 >LISTINGS</h2>
     <div class="container-sm">
-</div><br><br>
- <form action="listings/allListings/selective" method="post">
-  <input type="text"  class="form-control" id="search" placeholder="enter the city name" onchange="myfunction()">
- </form>
- <br><br>
+</div>
     <form action="/listings/new" method="get">
         <button>Create New listing</button>
     </form>
@@ -15,15 +11,14 @@
 
 <div class="card listing-card" style="width:18rem;">
 
-    <div class="image-container">
+    <a href="/listings/allListings/<%= listing._id %>" class="text-decoration-none text-dark">
 
-        <img src="<%= listing.image.url %>"
-             class="card-img-top"
-             alt="listing_image"
-             height="200px">
-    </div>
-
-    <a href="/listings/allListings/<%= listing._id %>" class="listing-linking">
+        <img
+            src="<%= listing.image.url %>"
+            class="card-img-top"
+            alt="listing_image"
+            height="200px"
+        >
 
         <div class="card-body">
             <p class="card-text">
@@ -35,5 +30,6 @@
     </a>
 
 </div>
+
 <% } %>
    
