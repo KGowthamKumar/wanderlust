@@ -76,6 +76,9 @@ app.use((req,res,next)=>{
     next();
 })
 app.use("/", userRouter);
+app.get("/",(req,res)=>{
+    res.redirect("/listings");
+})
 app.get("/wonderlust",(req,res)=>{
     res.render("user.ejs");
 })
