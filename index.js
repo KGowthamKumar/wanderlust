@@ -1,3 +1,5 @@
+const dns = require("node:dns");
+dns.setServers(["1.1.1.1", "8.8.8.8"]);
 if(process.env.NODE_ENV!="production"){
     require('dotenv').config();
 }
@@ -13,6 +15,7 @@ const ExpressError=require("./utils/ExpressError.js");
 const listingsRouter=require("./routes/listing.js");
 const reviewsRouter=require("./routes/reviews.js")
 const session=require("express-session");
+const MongoStore = require('connect-mongo').default;
 const flash=require("connect-flash");
 const multer=require("multer");
 const initData=require("./init/data.js");
@@ -26,16 +29,30 @@ const passport=require("passport");
 const LocalStrategy=require("passport-local");
 const userRouter=require("./routes/user.js");
 const User=require("./models/User.js")
+const dbUrl=process.env.ATLAS_DB;
 main()
 .then(()=>{
     console.log("connection sucessful");
 })
 .catch(err => console.log(err));
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/hotel');
-};
+    await mongoose.connect(dbUrl);
+        console.log("Connected to MongoDB");
 
+};
+// 'mongodb://127.0.0.1:27017/hotel'
+const store=MongoStore.create({
+    mongoUrl:dbUrl,
+    crypto:{
+        secret:process.env.SECRET,
+    },
+    touchAfter:24*3600,
+});
+store.on("error",(err)=>{
+    console.log("error in monngo session",err);
+})
 const sessionOptions={
+    store,
     secret:process.env.SECRET,
     resave:false,
     saveUninitialized:true,
